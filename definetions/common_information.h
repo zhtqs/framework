@@ -11,4 +11,13 @@ public:
     std::wstring name;
     T data;
     
+public:
+    common_information()
+    {
+        
+    }
+    
+    virtual ~common_information()
+    {
+    }
 };

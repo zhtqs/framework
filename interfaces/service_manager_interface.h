@@ -1,8 +1,9 @@
 #pragma once
 
 #include "service_interface.h"
+#include "../object_memory_manager_interface.h"
 
-class service_manager_interface
+class service_manager_interface: public object_memory_manager_interface
 {
 public:
     virtual void clear()=0;
@@ -12,4 +13,8 @@ public:
     virtual void regist(service_interface* service,std::wstring name)=0;
     virtual void remove(service_interface* service)=0;
     virtual void remove(std::wstring name)=0;
+    
+public:
+    service_manager_interface();
+    virtual ~service_manager_interface();
 };
