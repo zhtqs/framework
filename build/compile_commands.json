@@ -1,0 +1,197 @@
+[
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/main.cpp.o -c /home/caowei/projects/framework/main.cpp",
+  "file": "/home/caowei/projects/framework/main.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/authentication_interface.cpp.o -c /home/caowei/projects/framework/interfaces/authentication_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/authentication_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/view_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/module_interface.cpp.o -c /home/caowei/projects/framework/interfaces/module_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/module_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/service_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/view_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/interfaces/service_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/menuitem_event_handler.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_event_handler.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_event_handler.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/menuitem_information.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/common_information.cpp.o -c /home/caowei/projects/framework/definetions/common_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/common_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/role.cpp.o -c /home/caowei/projects/framework/definetions/role.cpp",
+  "file": "/home/caowei/projects/framework/definetions/role.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/subscriber_information.cpp.o -c /home/caowei/projects/framework/definetions/subscriber_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/subscriber_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework.dir/definetions/event_information.cpp.o -c /home/caowei/projects/framework/definetions/event_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/event_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/main.cpp.o -c /home/caowei/projects/framework/main.cpp",
+  "file": "/home/caowei/projects/framework/main.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/authentication_interface.cpp.o -c /home/caowei/projects/framework/interfaces/authentication_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/authentication_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/view_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/module_interface.cpp.o -c /home/caowei/projects/framework/interfaces/module_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/module_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/service_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/view_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/interfaces/service_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/menuitem_event_handler.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_event_handler.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_event_handler.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/menuitem_information.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/common_information.cpp.o -c /home/caowei/projects/framework/definetions/common_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/common_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/role.cpp.o -c /home/caowei/projects/framework/definetions/role.cpp",
+  "file": "/home/caowei/projects/framework/definetions/role.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/subscriber_information.cpp.o -c /home/caowei/projects/framework/definetions/subscriber_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/subscriber_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++   -Dframework_dll_EXPORTS -std=c++11 -g -fPIC   -o CMakeFiles/framework_dll.dir/definetions/event_information.cpp.o -c /home/caowei/projects/framework/definetions/event_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/event_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/main.cpp.o -c /home/caowei/projects/framework/main.cpp",
+  "file": "/home/caowei/projects/framework/main.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/authentication_interface.cpp.o -c /home/caowei/projects/framework/interfaces/authentication_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/authentication_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/view_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/module_interface.cpp.o -c /home/caowei/projects/framework/interfaces/module_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/module_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/service_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/view_interface.cpp.o -c /home/caowei/projects/framework/interfaces/view_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/view_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/interfaces/service_manager_interface.cpp.o -c /home/caowei/projects/framework/interfaces/service_manager_interface.cpp",
+  "file": "/home/caowei/projects/framework/interfaces/service_manager_interface.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/menuitem_event_handler.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_event_handler.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_event_handler.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/menuitem_information.cpp.o -c /home/caowei/projects/framework/definetions/menuitem_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/menuitem_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/common_information.cpp.o -c /home/caowei/projects/framework/definetions/common_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/common_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/role.cpp.o -c /home/caowei/projects/framework/definetions/role.cpp",
+  "file": "/home/caowei/projects/framework/definetions/role.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/subscriber_information.cpp.o -c /home/caowei/projects/framework/definetions/subscriber_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/subscriber_information.cpp"
+},
+{
+  "directory": "/home/caowei/projects/framework/build",
+  "command": "/usr/bin/c++    -std=c++11 -g   -o CMakeFiles/framework_lib.dir/definetions/event_information.cpp.o -c /home/caowei/projects/framework/definetions/event_information.cpp",
+  "file": "/home/caowei/projects/framework/definetions/event_information.cpp"
+}
+]

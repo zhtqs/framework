@@ -1,0 +1,4 @@
+[Project]
+Name=framework
+Manager=KDevCMakeManager
+VersionControl=
