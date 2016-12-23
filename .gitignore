@@ -8,4 +8,6 @@ CTestTestfile.cmake
 *.a
 *.so
 *.exe
+github
+github.pub
 build/framework
