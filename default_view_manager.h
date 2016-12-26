@@ -7,7 +7,7 @@
 class default_view_manager: public view_manager_interface
 {
 private:
-    std::vector<common_information<view_interface*>> views;
+    std::vector<common_information<view_interface*> > views;
     
 public:
     

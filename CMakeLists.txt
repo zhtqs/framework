@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 
-# aux_source_directory(. DIR_SRCS)
-# aux_source_directory(interfaces DIR_SRCS)
-# aux_source_directory(definetions DIR_SRCS)
+aux_source_directory(. DIR_SRCS)
+aux_source_directory(interfaces DIR_SRCS)
+aux_source_directory(definetions DIR_SRCS)
 
 project(framework)
 add_executable(framework ${DIR_SRCS})
