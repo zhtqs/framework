@@ -14,7 +14,7 @@ if(UNIX)
         set(GUI "X11")
     endif(APPLE)
 else(UNIX)
-#    set(CMAKE_CXX_COMPILER "C:/Program Files (x86)/Microsoft Visual Studio 11.0/VC/bin/cl.exe")
+#    set(CMAKE_CXX_COMPILER "C:/Program Files (x86)/Microsoft Visual Studio 11.0/VC/bin/cl.exe") # cmake 会自动查找最新版本的VC编译套件，这不能切换编译套件
 #    set(CMAKE_C_COMPILER "C:/Program Files (x86)/Microsoft Visual Studio 11.0/VC/bin/cl.exe")
     set(LINK_FLAGS "/MANIFEST:NO")
     if(WIN32)
@@ -25,7 +25,7 @@ else(UNIX)
 endif(UNIX)
 add_definitions(-DFRAMEWORK_EXPORT)
 set(CMAKE_BUILD_TYPE "Release")
-message(STATUS "compiler is " ${CMAKE_CXX_COMPILER} ", platform is " ${GUI})
+message(STATUS "compiler is " ${CMAKE_CXX_COMPILER} ", platform is " ${GUI}) # 字符串的连接不必用 + 号，格式化转义字符必须与字符串转义定符隔开
 
 project(framework)
 add_library(framework SHARED ${DIR_SRCS})
@@ -43,6 +43,7 @@ project(ftest)
 add_executable(ftest ${DIR_FTESTS})
 # set_property(TARGET framework PROPERTY CXX_STANDARD 11)
 set_target_properties(ftest PROPERTIES CXX_STANDARD 14)
+# target_link_libraries(ftest framework_lib z m) z 和 m 不是 project 名称，被自动识别为 lib 文件名称
 target_link_libraries(ftest framework_lib)
 install(TARGETS ftest RUNTIME DESTINATION bin)
 
