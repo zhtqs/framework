@@ -4,7 +4,7 @@
 #include "../object_memory_manager_interface.h"
 #include <string>
 
-class service_interface : public authentication_interface
+class service_interface : public authentication_interface,public object_memory_manager_interface
 {
 public:
     virtual std::wstring* get_name() const =0;
