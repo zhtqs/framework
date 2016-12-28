@@ -1,4 +1,5 @@
 #include "default_view_manager.h"
+#include <algorithm>
 
 default_view_manager::default_view_manager()
 {
@@ -6,26 +7,31 @@ default_view_manager::default_view_manager()
 
 default_view_manager::~default_view_manager()
 {
+    clear();
 }
 
 void default_view_manager::clear()
 {
+    for(auto it : views)
+    {
+        it.data->free();
+    }
     views.clear();
 }
 
 void default_view_manager::clone(object_memory_manager_interface* object)
 {
-    default_view_manager* copy=new default_view_manager;
+    auto copy=new default_view_manager;
     copy->views=views;
+    for(auto& view : copy->views)
+    {
+        view.data->clone(view.data);
+    }
     object=copy;
 }
 
 void default_view_manager::free()
 {
-    for(std::vector<common_information<view_interface*> >::iterator it=views.begin();it!=views.end();it++)
-    {
-        it->data->free();
-    }
     clear();
     delete this;
 }
@@ -39,31 +45,19 @@ int default_view_manager::get_size()
 
 bool default_view_manager::is_exists(std::wstring& name)
 {
-    bool found=false;
-    for(std::vector<common_information<view_interface*> >::iterator it=views.begin();it!=views.end();it++)
+    return std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=true;
-            break;
-        }
-    }
-    return found;
+        return x.name==name;
+    })==views.end();
 }
 
 
 bool default_view_manager::is_exists(view_interface* view)
 {
-    bool found=false;
-    for(std::vector<common_information<view_interface*> >::iterator it=views.begin();it!=views.end();it++)
+    return std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        if(it->data==view)
-        {
-            found=true;
-            break;
-        }
-    }
-    return found;
+        return x.data==view;
+    })==views.end();
 }
 
 
@@ -78,15 +72,10 @@ void default_view_manager::regist(view_interface* view, std::wstring& name)
 
 void default_view_manager::remove(std::wstring& name)
 {
-    std::vector<common_information<view_interface*> >::iterator found=views.end(),it=views.begin();
-    for(;it!=views.end();it++)
+    auto found=std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found!=views.end())
     {
         found->data->free();
@@ -97,15 +86,10 @@ void default_view_manager::remove(std::wstring& name)
 
 void default_view_manager::remove(view_interface* view)
 {
-    std::vector<common_information<view_interface*> >::iterator found=views.end(),it=views.begin();
-    for(;it!=views.end();it++)
+    auto found=std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        if(it->data==view)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.data==view;
+    });
     if(found!=views.end())
     {
         found->data->free();
@@ -115,15 +99,10 @@ void default_view_manager::remove(view_interface* view)
 
 view_interface * default_view_manager::get_view_by_name(std::wstring& name)
 {
-    std::vector<common_information<view_interface*> >::iterator found=views.end(),it=views.begin();
-    for(;it!=views.end();it++)
+    auto found=std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found!=views.end())
     {
         return found->data;

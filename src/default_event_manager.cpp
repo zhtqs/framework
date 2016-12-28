@@ -1,4 +1,5 @@
 #include "default_event_manager.h"
+#include <algorithm>
 
 default_event_manager::default_event_manager()
 {
@@ -11,15 +12,13 @@ default_event_manager::~default_event_manager()
 
 void default_event_manager::clear()
 {
-    std::vector<event_information>::iterator eit=events.begin();
-    for(;eit!=events.end();eit++)
+    for(auto eit : events)
     {
-        std::vector<subscriber_information>::iterator sit=eit->subscribers.begin();
-        for(;sit!=eit->subscribers.end();sit++)
+        for(auto& sit : eit.subscribers)
         {
-            sit->callback->free();
+            sit.callback->free();
         }
-        eit->subscribers.clear();
+        eit.subscribers.clear();
     }
     events.clear();
 }
@@ -38,16 +37,10 @@ int default_event_manager::get_event_count()
 
 int default_event_manager::get_subscribe_count(std::wstring& name)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    auto found = std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found!=events.end())
     {
         return found->subscribers.size();
@@ -57,16 +50,10 @@ int default_event_manager::get_subscribe_count(std::wstring& name)
 
 void default_event_manager::subscribe(std::wstring& name, std::wstring& from, menuitem_event_handler* handler)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    auto found = std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found==events.end())
     {
         return;
@@ -79,91 +66,57 @@ void default_event_manager::subscribe(std::wstring& name, std::wstring& from, me
 
 void default_event_manager::fire(std::wstring& name, void* obj)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    auto found = std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found==events.end())
     {
         return;
     }
-    std::vector<subscriber_information>::iterator sit=found->subscribers.begin();
-    for(;sit!=found->subscribers.end();sit++)
+    for(auto sit : found->subscribers)
     {
-        sit->callback->on_activicated(obj);
+        sit.callback->on_activicated(obj);
     }
 }
 
 bool default_event_manager::is_exists(std::wstring& name)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    return std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
-    return found==events.end();
+        return x.name==name;
+    })==events.end();
 }
 
 void default_event_manager::unsubscribe(std::wstring& name, std::wstring& from)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    auto found = std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found==events.end())
     {
         return ;
     }
-    std::vector<subscriber_information>::iterator sit=found->subscribers.begin();
-    while(sit!=found->subscribers.end())
+    std::remove_if(found->subscribers.begin(),found->subscribers.end(),[=](subscriber_information& x)->bool
     {
-        if(sit->name==from)
-        {
-            found->subscribers.erase(sit);
-            sit=found->subscribers.begin();
-            continue;
-        }
-        sit++;
-    }
+        return x.name==from;
+    });
 }
 
 void default_event_manager::delete_event(std::wstring& name)
 {
-    std::vector<event_information>::iterator found=events.end();
-    std::vector<event_information>::iterator it=events.begin();
-    for(;it!=events.end();it++)
+    auto found = std::find_if(events.begin(),events.end(),[=](event_information& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found==events.end())
     {
         return ;
     }
-    std::vector<subscriber_information>::iterator sit=found->subscribers.begin();
-    for(;sit!=found->subscribers.end();sit++)
+    for(auto sit : found->subscribers)
     {
-        sit->callback->free();
+        sit.callback->free();
     }
     found->subscribers.clear();
     events.erase(found);
@@ -182,15 +135,14 @@ void default_event_manager::free()
 
 void default_event_manager::clone(object_memory_manager_interface* object)
 {
-    default_event_manager *copy=new default_event_manager;
+    auto copy=new default_event_manager;
     copy->events=events;
     std::vector<event_information>::iterator eit=copy->events.begin();
-    for(;eit!=copy->events.end();eit++)
+    for(auto& eit : events)
     {
-        std::vector<subscriber_information>::iterator sit=eit->subscribers.begin();
-        for(;sit!=eit->subscribers.end();sit++)
+        for(auto& sit : eit.subscribers)
         {
-            sit->callback->clone(sit->callback);
+            sit.callback->clone(sit.callback);
         }
     }
     object=copy;

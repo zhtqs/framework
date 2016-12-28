@@ -1,4 +1,5 @@
 #include "default_service_manager.h"
+#include <algorithm>
 
 default_service_manager::default_service_manager()
 {
@@ -11,44 +12,27 @@ default_service_manager::~default_service_manager()
 
 void default_service_manager::clear()
 {
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    while(it!=services.end())
+    for(auto it : services)
     {
-        it->data->free();
-        it++;
+        it.data->free();
     }
     services.clear();
 }
 
 bool default_service_manager::is_exists(service_interface* service)
 {
-    bool found=false;
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    while(it!=services.end())
+    return std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        if(it->data==service)
-        {
-            found=true;
-            break;
-        }
-        it++;
-    }
-    return found;
+        return x.data == service;
+    })==services.end();
 }
 
 bool default_service_manager::is_exists(std::wstring& name)
 {
-    bool found=false;
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    while(it!=services.end())
+    return std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=true;
-            break;
-        }
-    }
-    return found;
+        return x.name==name;
+    })==services.end();
 }
 
 void default_service_manager::regist(service_interface* service, std::wstring& name)
@@ -61,16 +45,10 @@ void default_service_manager::regist(service_interface* service, std::wstring& n
 
 void default_service_manager::remove(service_interface* service)
 {
-    std::vector<common_information<service_interface*> >::iterator found=services.end();
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    for(;it!=services.end();it++)
+    auto found=std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        if(it->data==service)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.data == service;
+    });
     if(found!=services.end())
     {
         services.erase(found);
@@ -79,16 +57,10 @@ void default_service_manager::remove(service_interface* service)
 
 void default_service_manager::remove(std::wstring& name)
 {
-    std::vector<common_information<service_interface*> >::iterator found=services.end();
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    for(;it!=services.end();it++)
+    auto found=std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found!=services.end())
     {
         services.erase(found);
@@ -97,16 +69,10 @@ void default_service_manager::remove(std::wstring& name)
 
 service_interface* default_service_manager::get_service_by_name(std::wstring& name)
 {
-    std::vector<common_information<service_interface*> >::iterator found=services.end();
-    std::vector<common_information<service_interface*> >::iterator it=services.begin();
-    for(;it!=services.end();it++)
+    auto found=std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        if(it->name==name)
-        {
-            found=it;
-            break;
-        }
-    }
+        return x.name==name;
+    });
     if(found!=services.end())
     {
         return found->data;
@@ -116,8 +82,12 @@ service_interface* default_service_manager::get_service_by_name(std::wstring& na
 
 void default_service_manager::clone(object_memory_manager_interface* object)
 {
-    default_service_manager* copy=new default_service_manager;
+    auto copy=new default_service_manager;
     copy->services=services;
+    for(auto& service : copy->services)
+    {
+        service.data->clone(service.data);
+    }
     object=copy;
 }
 

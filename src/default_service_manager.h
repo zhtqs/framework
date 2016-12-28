@@ -4,7 +4,7 @@
 #include "definetions/common_information.h"
 #include <vector>
 
-class default_service_manager:service_manager_interface
+class default_service_manager: public service_manager_interface
 {
 private:
     std::vector<common_information<service_interface*> > services;
