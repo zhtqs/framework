@@ -63,6 +63,19 @@ void default_module_manager::regist(module_interface* module, std::wstring& name
     modules.push_back(mi);
 }
 
+void default_module_manager::remove(module_interface* module)
+{
+    auto found=std::find_if(modules.begin(),modules.end(),[=](common_information<module_interface*>& x)->bool
+    {
+        return x.data==module;
+    });
+    if(found!=modules.end())
+    {
+        modules.erase(found);
+    }
+}
+
+
 
 
 
