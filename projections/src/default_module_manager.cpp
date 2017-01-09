@@ -55,5 +55,14 @@ module_interface * default_module_manager::get_module(std::wstring& name)
     return nullptr;
 }
 
+void default_module_manager::regist(module_interface* module, std::wstring& name)
+{
+    common_information<module_interface *>  mi;
+    mi.name=name;
+    module->clone(mi.data);
+    modules.push_back(mi);
+}
+
+
 
 
