@@ -23,7 +23,7 @@ else(UNIX)
         set(GUI "Win64 or Unknown")
     endif(WIN32)
 endif(UNIX)
-add_definitions(-DFRAMEWORK_EXPORT)
+add_definitions(-DFRAMEWORK_LIBRARY)
 set(CMAKE_BUILD_TYPE "Release")
 message(STATUS "compiler is " ${CMAKE_CXX_COMPILER} ", platform is " ${GUI}) # 字符串的连接不必用 + 号，格式化转义字符必须与字符串转义定符隔开
 

@@ -14,3 +14,4 @@ build
 .kdev4
 .idea
 *.kdev4
+cmake-build-debug
