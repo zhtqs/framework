@@ -12,4 +12,5 @@ github
 github.pub
 build
 .kdev4
+.idea
 *.kdev4
