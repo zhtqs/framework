@@ -48,7 +48,7 @@ bool default_view_manager::is_exists(std::wstring& name)
     return std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
         return x.name==name;
-    })==views.end();
+    })!=views.end();
 }
 
 
@@ -57,7 +57,7 @@ bool default_view_manager::is_exists(view_interface* view)
     return std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
         return x.data==view;
-    })==views.end();
+    })!=views.end();
 }
 
 

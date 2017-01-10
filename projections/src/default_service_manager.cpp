@@ -24,7 +24,7 @@ bool default_service_manager::is_exists(service_interface* service)
     return std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
         return x.data == service;
-    })==services.end();
+    })!=services.end();
 }
 
 bool default_service_manager::is_exists(std::wstring& name)
@@ -32,7 +32,7 @@ bool default_service_manager::is_exists(std::wstring& name)
     return std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
         return x.name==name;
-    })==services.end();
+    })!=services.end();
 }
 
 void default_service_manager::regist(service_interface* service, std::wstring& name)

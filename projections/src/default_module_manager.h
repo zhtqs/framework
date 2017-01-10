@@ -2,17 +2,15 @@
 
 #include <vector>
 #include "interfaces/module_interface.h"
-#include "default_service_manager.h"
-#include "default_view_manager.h"
-#include "default_event_manager.h"
+#include "definetions/common_information.h"
 
 class default_module_manager
 {
 private:
     std::vector<common_information<module_interface*> > modules;
-    default_event_manager event_manager;
-    default_service_manager service_manager;
-    default_view_manager view_manager;
+    event_manager_interface* event_manager;
+    service_manager_interface* service_manager;
+    view_manager_interface* view_manager;
     
 public:
     static default_module_manager instance;
@@ -23,6 +21,7 @@ public:
     event_manager_interface* get_event_manager();
     std::vector<common_information<module_interface*> > get_modules() &;
     
+public:
     void clear();
     module_interface* get_module(std::wstring& name);
     void regist(module_interface* module,std::wstring& name);
@@ -31,6 +30,10 @@ public:
     bool is_exists(std::wstring& name);
     bool is_exists(module_interface* module);
     void init_modules();
+    
+    void set_event_manager(event_manager_interface* const event_manager);
+    void set_service_manager(service_manager_interface* service_manager);
+    void set_view_manager(view_manager_interface* view_manager);
     
 private:
     default_module_manager();
