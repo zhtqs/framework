@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 
+include_directories(include)
+include_directories(projections/include)
+
 aux_source_directory(src DIR_SRCS)
 aux_source_directory(src/interfaces DIR_SRCS)
 aux_source_directory(src/definetions DIR_SRCS)

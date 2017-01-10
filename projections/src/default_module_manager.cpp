@@ -4,11 +4,13 @@
 #include "default_service_manager.h"
 #include "default_view_manager.h"
 
+default_module_manager default_module_manager::minstance;
+
 default_module_manager::default_module_manager()
 {
-    service_manager=new default_service_manager;
-    event_manager=new default_event_manager;
-    view_manager=new default_view_manager;
+    mservice_manager=new default_service_manager;
+    mevent_manager=new default_event_manager;
+    mview_manager=new default_view_manager;
 }
 
 default_module_manager::~default_module_manager()
@@ -16,22 +18,22 @@ default_module_manager::~default_module_manager()
     clear();
 }
 
-service_manager_interface * default_module_manager::get_service_manager()
+service_manager_interface * default_module_manager::get_service_manager() const
 {
-    return service_manager;
+    return mservice_manager;
 }
 
-view_manager_interface * default_module_manager::get_view_manager()
+view_manager_interface * default_module_manager::get_view_manager() const
 {
-    return view_manager;
+    return mview_manager;
 }
 
-event_manager_interface * default_module_manager::get_event_manager()
+event_manager_interface * default_module_manager::get_event_manager() const
 {
-    return event_manager;
+    return mevent_manager;
 }
 
-std::vector<common_information<module_interface *> > default_module_manager::get_modules() &
+std::vector<common_information<module_interface *> > default_module_manager::get_modules() const &
 {
     return modules;
 }
@@ -127,19 +129,25 @@ void default_module_manager::init_modules()
     }
 }
 
-void default_module_manager::set_event_manager(event_manager_interface *const event_manager)
+void default_module_manager::set_event_manager(event_manager_interface * event_manager)
 {
-    event_manager->clone(this->event_manager);
+    event_manager->clone(mevent_manager);
 }
 
 void default_module_manager::set_service_manager(service_manager_interface* service_manager)
 {
-    service_manager->clone(this->service_manager);
+    service_manager->clone(mservice_manager);
 }
 
 void default_module_manager::set_view_manager(view_manager_interface* view_manager)
 {
-    view_manager->clone(this->view_manager);
+    view_manager->clone(mview_manager);
 }
+
+default_module_manager& default_module_manager::get_instance()
+{
+    return minstance;
+}
+
 
 
