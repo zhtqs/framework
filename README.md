@@ -1,4 +1,6 @@
 # framework
+## 说明
+
 用C++实现的一个高内聚低耦合设计模式的框架
 
 这个框架能够：
@@ -7,3 +9,7 @@
 * 降低C++模块之间的耦合性，增加模块的灵活性
 * 相较传统的COM和COM+，这个框架不仅可以在Windows平台上使用，还可以在Linux等其它平台上使用
 * 软件只依赖于经典的STL和C++标准，任何人都可以容易的迁移到任意平台
+
+## 如何开始
+
+CMakeLists.txt中已经把include文件夹和src/include文件夹加入整个编译环境的INCLUDE环境变量中。目前KDevelop不能识别CMake中关于<INCLUDE>的设置，它自己的工程设置中INCLUDE环境应当加入这两个文件夹。
