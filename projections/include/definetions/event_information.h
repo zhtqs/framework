@@ -5,12 +5,11 @@
 #include <vector>
 #include "subscriber_information.h"
 
-class event_information final
+class FRAMEWORK_API event_information final
 {
-public:
-    std::string id;
-    std::wstring name;
-    std::vector<subscriber_information> subscribers;
+    POINTER_PROPERTY(std::string,id);
+    POINTER_PROPERTY(std::wstring,name);
+    POINTER_PROPERTY(std::vector<subscriber_information>,subscribers);
     
 public:
     event_information();

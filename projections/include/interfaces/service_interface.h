@@ -4,7 +4,7 @@
 #include "object_memory_manager_interface.h"
 #include <string>
 
-class __declspec(novtable) service_interface : public authentication_interface,public object_memory_manager_interface
+interface service_interface : public authentication_interface,public object_memory_manager_interface
 {
 public:
     virtual std::wstring* get_name() const;

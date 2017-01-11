@@ -2,20 +2,15 @@
 
 #include <string>
 #include <vector>
+#include "../public.h"
 #include "menuitem_event_handler.h"
 
-class subscriber_information final
+class FRAMEWORK_API subscriber_information final
 {
-private:
-    bool is_remember_callback;
-    
-public:
-    std::string id;
-    std::wstring name;
-    menuitem_event_handler* callback;
-    
-public:
-    void remember_callback(menuitem_event_handler* callback);
+    GET_PROPERTY(bool,is_remember_callback);
+    POINTER_PROPERTY(std::string,id);
+    POINTER_PROPERTY(std::wstring,name);
+    POINTER_PROPERTY(menuitem_event_handler,callback);
     
 public:
     subscriber_information();

@@ -1,13 +1,13 @@
 #pragma once
 
+#include "../public.h"
 #include <string>
 
-class role final
+class FRAMEWORK_API role final
 {
-public:
-    std::string id;
-    std::wstring name;
-    std::wstring note;
+    POINTER_PROPERTY(std::string,id);
+    POINTER_PROPERTY(std::wstring,name);
+    POINTER_PROPERTY(std::wstring,note);
     
 public:
     role();

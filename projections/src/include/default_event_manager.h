@@ -22,9 +22,9 @@ public:
     void delete_event(std::wstring& name);
     
     //object_memory_manager_interface
-    int get_size();
+    int get_size() const;
     void free();
-    void clone(object_memory_manager_interface* object);
+    void clone(object_memory_manager_interface* object) const;
     
 public:
     default_event_manager();

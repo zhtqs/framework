@@ -2,7 +2,7 @@
 
 #include "../definetions/role.h"
 
-class __declspec(novtable) authentication_interface
+interface authentication_interface
 {
 public:
     virtual role* get_token() const;

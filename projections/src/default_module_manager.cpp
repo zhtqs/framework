@@ -18,25 +18,13 @@ default_module_manager::~default_module_manager()
     clear();
 }
 
-service_manager_interface * default_module_manager::get_service_manager() const
-{
-    return mservice_manager;
-}
+IMPLEMENT_POINTER_PROPERTY(default_module_manager,event_manager_interface,event_manager)
 
-view_manager_interface * default_module_manager::get_view_manager() const
-{
-    return mview_manager;
-}
+IMPLEMENT_POINTER_PROPERTY(default_module_manager,service_manager_interface,service_manager)
 
-event_manager_interface * default_module_manager::get_event_manager() const
-{
-    return mevent_manager;
-}
+IMPLEMENT_POINTER_PROPERTY(default_module_manager,view_manager_interface,view_manager)
 
-std::vector<common_information<module_interface *> > default_module_manager::get_modules() const &
-{
-    return modules;
-}
+IMPLEMENT_DATA_PROPERTY(default_module_manager,std::vector<common_information<module_interface*> >,modules)
 
 void default_module_manager::clear()
 {
@@ -54,7 +42,7 @@ module_interface * default_module_manager::get_module(std::wstring& name)
 {
     auto found=std::find_if(modules.begin(),modules.end(),[=](common_information<module_interface*>& x)->bool
     {
-        return x.name==name;
+        return *x.name==name;
     });
     if(found!=modules.end())
     {
@@ -66,7 +54,7 @@ module_interface * default_module_manager::get_module(std::wstring& name)
 void default_module_manager::regist(module_interface* module, std::wstring& name)
 {
     common_information<module_interface *>  mi;
-    mi.name=name;
+    *mi.name=name;
     module->clone(mi.data);
     modules.push_back(mi);
 }
@@ -87,7 +75,7 @@ void default_module_manager::remove(std::wstring& name)
 {
     auto found=std::find_if(modules.begin(),modules.end(),[=](common_information<module_interface*>& x)->bool
     {
-        return x.name==name;
+        return *x.name==name;
     });
     if(found!=modules.end())
     {
@@ -99,7 +87,7 @@ bool default_module_manager::is_exists(std::wstring& name)
 {
     auto found=std::find_if(modules.begin(),modules.end(),[=](common_information<module_interface*>& x)->bool
     {
-        return x.name==name;
+        return *x.name==name;
     });
     return found!=modules.end();
 }
@@ -127,21 +115,6 @@ void default_module_manager::init_modules()
     {
         module.data->regist_views(view_manager);
     }
-}
-
-void default_module_manager::set_event_manager(event_manager_interface * event_manager)
-{
-    event_manager->clone(mevent_manager);
-}
-
-void default_module_manager::set_service_manager(service_manager_interface* service_manager)
-{
-    service_manager->clone(mservice_manager);
-}
-
-void default_module_manager::set_view_manager(view_manager_interface* view_manager)
-{
-    view_manager->clone(mview_manager);
 }
 
 default_module_manager& default_module_manager::get_instance()

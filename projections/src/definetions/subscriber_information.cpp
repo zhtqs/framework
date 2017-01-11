@@ -7,27 +7,36 @@
 subscriber_information::subscriber_information()
 {
     is_remember_callback=false;
-    callback=NULL;
+    mid=new std::string;
+    mname=new std::wstring;
+    mcallback=nullptr;
 }
 
 subscriber_information::~subscriber_information()
 {
-    if(is_remember_callback&&callback!=NULL)
+    if(mis_remember_callback&&callback!=nullptr)
     {
-        callback->free();
+        mcallback->free();
     }
+    delete mid;
+    delete mname;
 }
 
-void subscriber_information::remember_callback(menuitem_event_handler* callback)
+IMPLEMENT_DATA_PROPERTY(subscriber_information,bool,is_remember_callback)
+
+IMPLEMENT_POINTER_PROPERTY(subscriber_information,std::string,id)
+
+IMPLEMENT_POINTER_PROPERTY(subscriber_information,std::wstring,name)
+
+menuitem_event_handler*& subscriber_information::get_callback()
 {
-    int src_size=sizeof(*callback);
-    int obj_size=callback->get_size();
-    int size=(int)fmax(src_size,obj_size);
-    callback=(menuitem_event_handler*)calloc(1,size);
-    memcpy((void*)this->callback,(void*)callback,size);
+    return mcallback;
 }
 
-
+void subscriber_information::set_callback(const menuitem_event_handler *& callback)
+{
+    callback->clone(mcallback);
+}
 
 
 

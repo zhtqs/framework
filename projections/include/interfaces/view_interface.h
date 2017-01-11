@@ -4,7 +4,7 @@
 #include "authentication_interface.h"
 #include "object_memory_manager_interface.h"
 
-class __declspec(novtable) view_interface: public object_memory_manager_interface,public authentication_interface
+interface view_interface: public object_memory_manager_interface,public authentication_interface
 {
 public:
     virtual void set_view_visible(bool is_visible);

@@ -6,17 +6,13 @@
 
 class default_module_manager
 {
-private:
-    std::vector<common_information<module_interface*> > modules;
-    service_manager_interface* mservice_manager;
-    event_manager_interface* mevent_manager;
-    view_manager_interface* mview_manager;
-    static default_module_manager minstance;
+    GET_PROPERTY(event_manager_interface*,event_manager);
+    GET_PROPERTY(service_manager_interface*,service_manager);
+    GET_PROPERTY(view_manager_interface*,view_manager);
+    GET_PROPERTY(std::vector<common_information<module_interface*> >,modules);
     
-public:
-    __declspec(property(get=get_event_manager,put=set_event_manager)) event_manager_interface* event_manager;
-    __declspec(property(get=get_service_manager,put=set_service_manager)) service_manager_interface* service_manager;
-    __declspec(property(get=get_view_manager,put=set_view_manager)) view_manager_interface* view_manager;
+private:
+    static default_module_manager minstance;
     
 public:
     void clear();
@@ -27,14 +23,6 @@ public:
     bool is_exists(std::wstring& name);
     bool is_exists(module_interface* module);
     void init_modules();
-    
-    view_manager_interface* get_view_manager() const;
-    service_manager_interface* get_service_manager() const;
-    event_manager_interface* get_event_manager() const;
-    void set_event_manager(event_manager_interface* event_manager);
-    void set_service_manager(service_manager_interface* service_manager);
-    void set_view_manager(view_manager_interface* view_manager);
-    std::vector<common_information<module_interface*> > get_modules() const &;
     
 public:
     static default_module_manager& get_instance();

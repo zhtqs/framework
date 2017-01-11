@@ -2,22 +2,27 @@
 
 menuitem_information::menuitem_information()
 {
-    
+    mname=new std::wstring;
+    mdisplay_name=new std::wstring;
+    mhandler=nullptr;
+    mimage_data=new std::vector<unsigned char>;
 }
 
 menuitem_information::~menuitem_information()
 {
+    image_data->clear();
+    delete mname;
+    delete mdisplay_name;
+    if(mhandler)
+        delete mhandler;
+    delete mimage_data;
 }
 
-void menuitem_information::set_image_data(unsigned char* data, int length)
-{
-    int i=0;
-    this->image_data.clear();
-    while(i<length&&i<INT_MAX)
-        this->image_data.push_back(*(data+i++));
-}
+IMPLEMENT_POINTER_PROPERTY(menuitem_information,std::wstring,name)
 
+IMPLEMENT_POINTER_PROPERTY(menuitem_information,std::wstring,display_name)
 
+IMPLEMENT_POINTER_PROPERTY(menuitem_information,menuitem_event_handler,handler)
 
-
+IMPLEMENT_POINTER_PROPERTY(menuitem_information,std::vector<byte>,image_data)
 

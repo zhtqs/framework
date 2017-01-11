@@ -8,7 +8,7 @@
 #include "event_manager_interface.h"
 #include "service_manager_interface.h"
 
-class __declspec(novtable) module_interface: public object_memory_manager_interface
+interface module_interface: public object_memory_manager_interface
 {
 public:
     virtual std::wstring* get_path() const ;
