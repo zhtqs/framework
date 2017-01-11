@@ -1,4 +1,4 @@
-#include "module_interface.h"
+#include "interfaces/module_interface.h"
 
 module_interface::module_interface()
 {

@@ -2,7 +2,7 @@
 #pragma once
 
 #include <iostream>
-#include "../object_memory_manager_interface.h"
+#include "object_memory_manager_interface.h"
 #include "../definetions/menuitem_information.h"
 #include "view_manager_interface.h"
 #include "event_manager_interface.h"

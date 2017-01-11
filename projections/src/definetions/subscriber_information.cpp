@@ -1,4 +1,4 @@
-#include "subscriber_information.h"
+#include "definetions/subscriber_information.h"
 #include <malloc.h>
 #include <math.h>
 #include <stdio.h>

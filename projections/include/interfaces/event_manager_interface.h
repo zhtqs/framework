@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "../object_memory_manager_interface.h"
+#include "object_memory_manager_interface.h"
 #include "../definetions/menuitem_event_handler.h"
 
 class __declspec(novtable) event_manager_interface: public object_memory_manager_interface

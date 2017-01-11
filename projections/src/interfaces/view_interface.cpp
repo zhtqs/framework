@@ -1,4 +1,4 @@
-#include "view_interface.h"
+#include "interfaces/view_interface.h"
 
 view_interface::view_interface()
 {

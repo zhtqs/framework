@@ -1,4 +1,4 @@
-#include "event_information.h"
+#include "definetions/event_information.h"
 
 event_information::event_information()
 {

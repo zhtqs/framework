@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "view_interface.h"
-#include "../object_memory_manager_interface.h"
+#include "object_memory_manager_interface.h"
 
 class __declspec(novtable) view_manager_interface: public object_memory_manager_interface
 {

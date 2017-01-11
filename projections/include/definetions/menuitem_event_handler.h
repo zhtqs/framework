@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../object_memory_manager_interface.h"
+#include "../interfaces/object_memory_manager_interface.h"
 #include <string>
 
 class menuitem_event_handler: public object_memory_manager_interface
