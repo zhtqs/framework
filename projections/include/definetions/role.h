@@ -3,11 +3,11 @@
 #include "../public.h"
 #include <string>
 
-class FRAMEWORK_API role final
+class role final
 {
-    POINTER_PROPERTY(std::string,id);
-    POINTER_PROPERTY(std::wstring,name);
-    POINTER_PROPERTY(std::wstring,note);
+    DATA_PROPERTY(std::string,id);
+    DATA_PROPERTY(std::wstring,name);
+    DATA_PROPERTY(std::wstring,note);
     
 public:
     role();

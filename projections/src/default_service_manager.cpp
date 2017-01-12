@@ -31,14 +31,14 @@ bool default_service_manager::is_exists(std::wstring& name)
 {
     return std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     })!=services.end();
 }
 
 void default_service_manager::regist(service_interface* service, std::wstring& name)
 {
     common_information<service_interface*> data;
-    *data.name=name;
+    data.name=name;
     service->clone(data.data);
     services.push_back(data);
 }
@@ -59,7 +59,7 @@ void default_service_manager::remove(std::wstring& name)
 {
     auto found=std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     });
     if(found!=services.end())
     {
@@ -71,7 +71,7 @@ service_interface* default_service_manager::get_service_by_name(std::wstring& na
 {
     auto found=std::find_if(services.begin(),services.end(),[=](common_information<service_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     });
     if(found!=services.end())
     {

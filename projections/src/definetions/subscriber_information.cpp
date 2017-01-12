@@ -7,8 +7,6 @@
 subscriber_information::subscriber_information()
 {
     is_remember_callback=false;
-    mid=new std::string;
-    mname=new std::wstring;
     mcallback=nullptr;
 }
 
@@ -18,15 +16,13 @@ subscriber_information::~subscriber_information()
     {
         mcallback->free();
     }
-    delete mid;
-    delete mname;
 }
 
 IMPLEMENT_DATA_PROPERTY(subscriber_information,bool,is_remember_callback)
 
-IMPLEMENT_POINTER_PROPERTY(subscriber_information,std::string,id)
+IMPLEMENT_DATA_PROPERTY(subscriber_information,std::string,id)
 
-IMPLEMENT_POINTER_PROPERTY(subscriber_information,std::wstring,name)
+IMPLEMENT_DATA_PROPERTY(subscriber_information,std::wstring,name)
 
 menuitem_event_handler*& subscriber_information::get_callback()
 {

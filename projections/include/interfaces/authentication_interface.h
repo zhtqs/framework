@@ -5,7 +5,7 @@
 interface authentication_interface
 {
 public:
-    virtual role* get_token() const;
+    virtual role& get_token() const;
     
 public:
     authentication_interface();

@@ -47,7 +47,7 @@ bool default_view_manager::is_exists(std::wstring& name)
 {
     return std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     })!=views.end();
 }
 
@@ -64,7 +64,7 @@ bool default_view_manager::is_exists(view_interface* view)
 void default_view_manager::regist(view_interface* view, std::wstring& name)
 {
     common_information<view_interface*> data;
-    *data.name=name;
+    data.name=name;
     view->clone(data.data);
     views.push_back(data);
 }
@@ -74,7 +74,7 @@ void default_view_manager::remove(std::wstring& name)
 {
     auto found=std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     });
     if(found!=views.end())
     {
@@ -101,7 +101,7 @@ view_interface * default_view_manager::get_view_by_name(std::wstring& name)
 {
     auto found=std::find_if(views.begin(),views.end(),[=](common_information<view_interface*>& x)->bool
     {
-        return *x.name==name;
+        return x.name==name;
     });
     if(found!=views.end())
     {
