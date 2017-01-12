@@ -4,12 +4,12 @@
 #include "interfaces/module_interface.h"
 #include "definetions/common_information.h"
 
-class default_module_manager
+class FRAMEWORK_API default_module_manager
 {
-    GET_PROPERTY(event_manager_interface*,event_manager);
-    GET_PROPERTY(service_manager_interface*,service_manager);
-    GET_PROPERTY(view_manager_interface*,view_manager);
-    GET_PROPERTY(std::vector<common_information<module_interface*> >,modules);
+    GET_POINTER_PROPERTY(event_manager_interface,event_manager);
+    GET_POINTER_PROPERTY(service_manager_interface,service_manager);
+    GET_POINTER_PROPERTY(view_manager_interface,view_manager);
+    GET_POINTER_PROPERTY(std::vector<common_information<module_interface*> >,modules);
     
 private:
     static default_module_manager minstance;

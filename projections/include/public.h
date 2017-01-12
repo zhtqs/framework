@@ -38,6 +38,14 @@ typedef unsigned char byte;
 	type_name& get_##variable_name();\
 	private:\
 	void set_##variable_name(const type_name& variable_name)
+#define GET_POINTER_PROPERTY(type_name,variable_name) public:\
+	__declspec(property(get=get_##variable_name,put=set_##variable_name)) type_name* variable_name;\
+	private:\
+	type_name* m##variable_name;\
+	public:\
+	type_name*& get_##variable_name();\
+	private:\
+	void set_##variable_name(const type_name*& variable_name)
 #define SIMPLE_PROPERTY(type_name,variable_name) public:\
 	__declspec(property(get=get_##variable_name,put=set_##variable_name)) type_name variable_name;\
 	private:\
