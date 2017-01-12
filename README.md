@@ -17,7 +17,7 @@
 * 模块管理接口`framework.dll`同样有此接口。通过此获接可以管理模块。
 * 导出C++函数是大多数C++开发同志们极不赞成的粗放型架构，建议新手同样遵循这样的规范。
 
-## 如何开始
+## 使用KDevelop的几个重要事项
 
 这里重点说一下需要注意的几个问题：
 * CMakeLists.txt中已经把include文件夹和src/include文件夹加入整个编译环境的INCLUDE环境变量中。目前KDevelop不能识别CMake中关于<INCLUDE>的设置，它自己的工程设置中INCLUDE环境应当加入这两个文件夹。
