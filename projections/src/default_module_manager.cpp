@@ -117,14 +117,9 @@ void default_module_manager::init_modules()
     }
 }
 
-default_module_manager& default_module_manager::get_instance()
+module_interface* default_module_manager::get_instance()
 {
-    return minstance;
-}
-
-module_interface* get_instance()
-{
-    return &default_module_manager::get_instance();
+    return this;
 }
 
 void default_module_manager::clone(object_memory_manager_interface* object) const

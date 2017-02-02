@@ -45,7 +45,7 @@ public:
     void clone(object_memory_manager_interface* object) const;
     
 public:
-    static default_module_manager& get_instance();
+    module_interface* get_instance();
     
 private:
     default_module_manager();
